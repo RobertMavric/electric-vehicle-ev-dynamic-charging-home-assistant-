@@ -1,3 +1,5 @@
+https://raw.githubusercontent.com/RobertMavric/electric-vehicle-ev-dynamic-charging-home-assistant-/main/DynamicEV-Charge-Afyeev16A-v2.2.yaml
+
 # Tesla Dynamic Charging Automation for Home Assistant (also Ford, Mercedes... any EV)
 
 This project automates the charging current of an electric vehicle based on household power consumption.  
