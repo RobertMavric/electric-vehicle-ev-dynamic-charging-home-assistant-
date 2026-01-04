@@ -38,7 +38,7 @@ blueprint:
             - label: "5 minutes"
               value: /5  
     device_tracker:
-      name: Car/person Location Tracker
+      name: Car/person Location Tracker(disabled)
       description: >
         Entity that determines whether the electric vehicle (EV) is at home. 
 
@@ -57,7 +57,7 @@ blueprint:
         The automation will only adjust the charging amperage if this sensor indicates that the EV is actively charging. 
 
         If the vehicle is at home but not plugged in or has already completed charging, no changes will be made to the charging current.
-      default: sensor.ev_charger_estado
+      default: sensor.ev_charger_status
       selector:
         entity:
           domain: sensor          
@@ -78,7 +78,7 @@ blueprint:
     sensor_house_power:
       name: Total Power Consumption Sensor
       description: Sensor that measures the total power consumption of the household in real-time.  This value is used to determine the available power for charging the electric vehicle (EV), ensuring that the charging current is dynamically adjusted to prevent exceeding the contracted power limit.  
-      default: sensor.shellyemg3_8cbfea96acd8_em1_power      
+      default: sensor.shelly_3f_total     
       selector:
         entity:
           domain: sensor
@@ -120,11 +120,11 @@ blueprint:
     max_amps:
       name: Maximum amps
       description:   Select the maximum charging current (in amps) that the electric vehicle (EV) should use. The automation will never set the charging amperage above this limit, even if there is enough available power in the household. Set this value according to the specifications of your EV charger and electrical system to ensure safe and optimal charging.
-      default: 20
+      default: 16
       selector:
         number:
           min: 6
-          max: 32
+          max: 20
           step: 1  
     min_amps:
       name: Minimum amps
@@ -133,7 +133,7 @@ blueprint:
       selector:
         number:
           min: 6
-          max: 32
+          max: 20
           step: 1                       
     day_time_days:
       name: Day Time Active Days
@@ -198,7 +198,7 @@ condition:
           - 'charged'
           - 'plugged_in'
           - 'Charging'
-          - 'CHARGING'          
+          - 'Waiting'          
         
 action:
   - variables:
