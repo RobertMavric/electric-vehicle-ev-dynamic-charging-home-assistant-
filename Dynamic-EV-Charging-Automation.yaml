@@ -1,6 +1,7 @@
 blueprint:
-  name: Dynamic EV Charging Automation v2.1
+  name: Dynamic EV Charge Afyeev16A v2.2
   description: >
+    **v2.2 - Afyeev16A
     **v2.1 - Added case-insensitive charging status support
     - Added support for "Charging" (capital C) status from ESPhome Tesla BLE
     - Improved status detection to support multiple case variations  
@@ -186,7 +187,7 @@ triggers:
     minutes: !input interval
 
 condition:
-  - condition: and
+  - condition: or
     conditions:
       - condition: state
         entity_id: !input device_tracker
